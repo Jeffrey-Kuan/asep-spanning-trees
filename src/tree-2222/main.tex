@@ -1,0 +1,74 @@
+\documentclass{ximera}
+\input{../preamble.tex}
+
+\title{A Tree Starting with 2222}
+
+\begin{document}
+\begin{abstract}
+One tree starting with $2222$, of weight $A^2S^2L^3$.
+\end{abstract}
+\maketitle
+
+The picture shows one tree starting with $2222$. It has seven arrows: two
+labeled $A$, two labeled $S$ and three labeled $L$, so its weight is
+$A^2S^2L^3$.
+
+\begin{image}
+\begin{tikzpicture}[
+    state/.style={inner sep=2pt, font=\large},
+    lab/.style={font=\large, inner sep=1pt},
+    arr/.style={-{Triangle[open, length=6pt, width=6pt]}, line width=0.6pt, shorten >=1pt, shorten <=1pt},
+  ]
+  % states, placed as in the handwritten page
+  \node[state] (2222) at (5.3,-4.10) {2222};
+  \node[state] (3322) at (3.0,-4.85) {3322};
+  \node[state] (2332) at (5.1,-5.60) {2332};
+  \node[state] (2233) at (7.5,-5.45) {2233};
+  \node[state] (3232) at (3.2,-6.40) {3232};
+  \node[state] (2323) at (7.5,-6.80) {2323};
+  \node[state] (3223) at (5.3,-7.25) {3223};
+  \node[state] (3333) at (5.4,-8.35) {3333};
+
+  % 2222 -A-> 2233
+  \draw[arr] (2222.south east) -- (2233.north west);
+  \node[lab] at (6.85,-4.15) {$A$};
+
+  % 2233 -L-> 2323
+  \draw[arr] (2233.south) -- (2323.north);
+  \node[lab] at (8.0,-6.10) {$L$};
+
+  % 2323 -L-> 2332
+  \draw[arr] (2323.north west) -- (2332.south east);
+  \node[lab] at (6.2,-6.55) {$L$};
+
+  % 2332 -L-> 3232
+  \draw[arr] (2332.south west) -- (3232.north east);
+  \node[lab] at (4.15,-5.55) {$L$};
+
+  % 3333 -S-> 3223
+  \draw[arr] (3333.north) -- (3223.south);
+  \node[lab] at (5.75,-7.80) {$S$};
+
+  % 2233 -A-> 3333 (long curve on the right)
+  \draw[arr] (2233.east) .. controls (9.3,-6.2) and (8.6,-8.3) .. (3333.east);
+  \node[lab] at (8.45,-8.00) {$A$};
+
+  % 3333 -S-> 3322 (long curve on the left)
+  \draw[arr] (3333.west) .. controls (1.6,-8.7) and (1.4,-5.9) .. (3322.west);
+  \node[lab] at (2.45,-8.50) {$S$};
+\end{tikzpicture}
+\xmalt{A directed tree on the eight states 2222, 2233, 2323, 2332, 3223, 3232, 3322 and 3333, with seven labeled arrows. From 2222 an arrow labeled A goes to 2233. From 2233 an arrow labeled L goes to 2323, and a long curved arrow labeled A goes to 3333. From 2323 an arrow labeled L goes to 2332. From 2332 an arrow labeled L goes to 3232. From 3333 an arrow labeled S goes to 3223, and a long curved arrow labeled S goes to 3322.}
+\end{image}
+
+The arrows, in words:
+\begin{itemize}
+\item $2222 \to 2233$, labeled $A$;
+\item $2233 \to 2323$, labeled $L$;
+\item $2323 \to 2332$, labeled $L$;
+\item $2332 \to 3232$, labeled $L$;
+\item $2233 \to 3333$, labeled $A$;
+\item $3333 \to 3223$, labeled $S$;
+\item $3333 \to 3322$, labeled $S$.
+\end{itemize}
+
+\end{document}
