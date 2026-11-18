@@ -1,4 +1,26 @@
+%% ---------------------------------------------------------------------------
+%% Two spanning trees, drawn in TikZ.
+%%
+%% How to read this file
+%%   * Everything after a percent sign is a comment. LaTeX ignores it.
+%%   * The two pictures are the parts between \begin{tikzpicture} and
+%%     \end{tikzpicture}. The first picture has a comment on every line.
+%%     The second picture is built the same way, so its comments are shorter.
+%%   * To draw another tree: copy a whole section (from \section to the end
+%%     of its itemize list), then change the node positions, the arrows, the
+%%     alt text and the list of arrows.
+%%
+%% Where the page appears
+%%   https://jeffrey-kuan.github.io/asep-spanning-trees/tree-2222/main.html
+%%   Each push to GitHub rebuilds that page (about two minutes).
+%% ---------------------------------------------------------------------------
+
+%% "ximera" is the document class that turns this file into a web page.
 \documentclass{ximera}
+
+%% Shared set-up for every page of the site. The file is src/preamble.tex.
+%% It loads the TikZ library arrows.meta, which provides the open triangular
+%% arrowheads used below.
 \input{../preamble.tex}
 
 \title{Trees Starting with 2222 and 2332}
@@ -9,62 +31,151 @@ One tree starting with $2222$ and one starting with $2332$, each of weight $A^2S
 \end{abstract}
 \maketitle
 
+%% \href{web address}{text} makes a link: the reader sees the text.
 The TikZ code for both pictures is in the
 \href{https://github.com/Jeffrey-Kuan/asep-spanning-trees/blob/main/src/tree-2222/main.tex}{TeX source of this page on GitHub}.
 
+%% ===========================================================================
+%% FIRST PICTURE: a tree starting with 2222
+%% ===========================================================================
 \section{A tree starting with 2222}
 
 The picture shows one tree starting with $2222$. It has seven arrows: two
 labeled $A$, two labeled $S$ and three labeled $L$, so its weight is
 $A^2S^2L^3$.
 
+%% The "image" environment tells Ximera that what is inside is a picture.
+%% It centers the picture and lets us attach alt text with \xmalt (below).
 \begin{image}
+
+%% A tikzpicture starts with a list of options in square brackets. Here the
+%% options define three STYLES. A style is a named bundle of settings, so that
+%% we can write "state" or "arr" later instead of repeating the settings.
+%% The form is   name/.style={settings}.
 \begin{tikzpicture}[
+    %% "state": how one of the eight states (2222, 2233, ...) is written.
+    %%    inner sep=2pt   leaves 2pt of empty space around the text. Arrows
+    %%                    stop at the edge of this invisible box, so a larger
+    %%                    number moves the arrow tips away from the digits.
+    %%    font=\large     makes the text a little bigger than normal.
     state/.style={inner sep=2pt, font=\large},
+    %% "lab": how a letter next to an arrow (A, S or L) is written.
     lab/.style={font=\large, inner sep=1pt},
+    %% "arr": how an arrow is drawn.
+    %%    -{Triangle[open, ...]}   a plain start (the "-") and a triangle
+    %%                             at the end. "open" means the triangle is an
+    %%                             outline and not filled in. length and width
+    %%                             set the size of the triangle.
+    %%    line width=0.6pt         thickness of the line.
+    %%    shorten >=1pt            stop 1pt before the end point, and
+    %%    shorten <=1pt            start 1pt after the start point, so the
+    %%                             arrow does not touch the digits.
     arr/.style={-{Triangle[open, length=6pt, width=6pt]}, line width=0.6pt, shorten >=1pt, shorten <=1pt},
   ]
-  % states, placed as in the handwritten page
-  \node[state] (2222) at (5.3,-4.10) {2222};
-  \node[state] (3322) at (3.0,-4.85) {3322};
-  \node[state] (2332) at (5.1,-5.60) {2332};
-  \node[state] (2233) at (7.5,-5.45) {2233};
-  \node[state] (3232) at (3.2,-6.40) {3232};
-  \node[state] (2323) at (7.5,-6.80) {2323};
-  \node[state] (3223) at (5.3,-7.25) {3223};
-  \node[state] (3333) at (5.4,-8.35) {3333};
 
-  % 2222 -A-> 2233
+  %% -------------------------------------------------------------------------
+  %% Step 1. Place the eight states.
+  %%
+  %%   \node[style] (name) at (x,y) {text};
+  %%
+  %%   (name)   an internal name, used later to say where arrows start and
+  %%            end. It is not printed. Here the name is the same as the text.
+  %%   (x,y)    the position of the centre of the text, in centimetres.
+  %%            x grows to the right and y grows upward, so the y values here
+  %%            are negative and a more negative y is lower on the page.
+  %%   {text}   what is printed.
+  %%
+  %% The positions were measured from the handwritten page, so the states
+  %% sit where they do in the drawing. Only the differences between positions
+  %% matter: adding the same number to every x, or to every y, moves the whole
+  %% picture and changes nothing else.
+  %% -------------------------------------------------------------------------
+  \node[state] (2222) at (5.3,-4.10) {2222};   % top, the starting state
+  \node[state] (3322) at (3.0,-4.85) {3322};   % upper left
+  \node[state] (2332) at (5.1,-5.60) {2332};   % middle
+  \node[state] (2233) at (7.5,-5.45) {2233};   % upper right
+  \node[state] (3232) at (3.2,-6.40) {3232};   % left
+  \node[state] (2323) at (7.5,-6.80) {2323};   % right
+  \node[state] (3223) at (5.3,-7.25) {3223};   % lower middle
+  \node[state] (3333) at (5.4,-8.35) {3333};   % bottom
+
+  %% -------------------------------------------------------------------------
+  %% Step 2. Draw the seven arrows, each followed by its letter.
+  %%
+  %%   \draw[arr] (start) -- (end);
+  %%
+  %%   "--" means a straight line. The arrowhead is at the end.
+  %%
+  %%   (2222.south east) means the lower right corner of the invisible box
+  %%   around the text of node 2222. These corner and side names are called
+  %%   anchors. The ones used here are
+  %%        north = top side        south = bottom side
+  %%        east  = right side      west  = left side
+  %%   and the four corners: north east, north west, south east, south west.
+  %%   Choosing the anchor chooses the side of the text the arrow leaves from
+  %%   or arrives at.
+  %%
+  %%   The letter is a separate node placed by hand at (x,y), near the middle
+  %%   of the arrow. The dollar signs put the letter in math italics.
+  %% -------------------------------------------------------------------------
+
+  % Arrow from 2222 to 2233, labeled A.
+  % It leaves the lower right corner of 2222 and arrives at the upper left
+  % corner of 2233.
   \draw[arr] (2222.south east) -- (2233.north west);
   \node[lab] at (6.85,-4.15) {$A$};
 
-  % 2233 -L-> 2323
+  % Arrow from 2233 to 2323, labeled L. Straight down: bottom of 2233 to top
+  % of 2323. The L sits to the right of the arrow.
   \draw[arr] (2233.south) -- (2323.north);
   \node[lab] at (8.0,-6.10) {$L$};
 
-  % 2323 -L-> 2332
+  % Arrow from 2323 to 2332, labeled L. It goes up and to the left.
   \draw[arr] (2323.north west) -- (2332.south east);
   \node[lab] at (6.2,-6.55) {$L$};
 
-  % 2332 -L-> 3232
+  % Arrow from 2332 to 3232, labeled L. It goes down and to the left.
   \draw[arr] (2332.south west) -- (3232.north east);
   \node[lab] at (4.15,-5.55) {$L$};
 
-  % 3333 -S-> 3223
+  % Arrow from 3333 to 3223, labeled S. Straight up: top of 3333 to bottom of
+  % 3223.
   \draw[arr] (3333.north) -- (3223.south);
   \node[lab] at (5.75,-7.80) {$S$};
 
-  % 2233 -A-> 3333 (long curve on the right)
+  %% -------------------------------------------------------------------------
+  %% The two long arrows are curves, not straight lines.
+  %%
+  %%   \draw[arr] (start) .. controls (P) and (Q) .. (end);
+  %%
+  %%   This draws a smooth curve from start to end. P and Q are two "control
+  %%   points". The curve does not pass through them. It leaves the start
+  %%   heading toward P, and it arrives at the end coming from the direction
+  %%   of Q. Moving P or Q further away makes the curve bulge out more.
+  %%   The easiest way to adjust a curve is to change P and Q a little and
+  %%   recompile.
+  %% -------------------------------------------------------------------------
+
+  % Arrow from 2233 to 3333, labeled A: the long curve on the right.
+  % It leaves the right side of 2233, heads right and down toward (9.3,-6.2),
+  % and comes into the right side of 3333 from the direction of (8.6,-8.3).
   \draw[arr] (2233.east) .. controls (9.3,-6.2) and (8.6,-8.3) .. (3333.east);
   \node[lab] at (8.45,-8.00) {$A$};
 
-  % 3333 -S-> 3322 (long curve on the left)
+  % Arrow from 3333 to 3322, labeled S: the long curve on the left.
+  % It leaves the left side of 3333, heads left toward (1.6,-8.7), and comes
+  % up into the left side of 3322 from the direction of (1.4,-5.9).
   \draw[arr] (3333.west) .. controls (1.6,-8.7) and (1.4,-5.9) .. (3322.west);
   \node[lab] at (2.45,-8.50) {$S$};
 \end{tikzpicture}
+
+%% Alt text: a description in words for readers who use a screen reader and
+%% cannot see the picture. It must say everything the picture says. If you
+%% change an arrow above, change this sentence and the list below as well.
 \xmalt{A directed tree on the eight states 2222, 2233, 2323, 2332, 3223, 3232, 3322 and 3333, with seven labeled arrows. From 2222 an arrow labeled A goes to 2233. From 2233 an arrow labeled L goes to 2323, and a long curved arrow labeled A goes to 3333. From 2323 an arrow labeled L goes to 2332. From 2332 an arrow labeled L goes to 3232. From 3333 an arrow labeled S goes to 3223, and a long curved arrow labeled S goes to 3322.}
 \end{image}
 
+%% The same seven arrows as a list. \to is the arrow symbol in math mode.
 The arrows, in words:
 \begin{itemize}
 \item $2222 \to 2233$, labeled $A$;
@@ -77,6 +188,13 @@ The arrows, in words:
 \end{itemize}
 
 
+%% ===========================================================================
+%% SECOND PICTURE: a tree starting with 2332
+%%
+%% Built exactly like the first one: the same three styles, then the eight
+%% states, then the seven arrows. Only the positions and the arrows differ.
+%% See the comments in the first picture for what each command does.
+%% ===========================================================================
 \section{A tree starting with 2332}
 
 The picture shows one tree starting with $2332$. It also has seven arrows:
@@ -85,48 +203,59 @@ $A^2S^2L^3$.
 
 \begin{image}
 \begin{tikzpicture}[
+    % The same three styles as in the first picture. Styles defined inside
+    % one tikzpicture are not remembered by the next, so they are repeated.
     state/.style={inner sep=2pt, font=\large},
     lab/.style={font=\large, inner sep=1pt},
     arr/.style={-{Triangle[open, length=6pt, width=6pt]}, line width=0.6pt, shorten >=1pt, shorten <=1pt},
   ]
-  % states, placed as in the handwritten page
-  \node[state] (2332) at (5.5,-3.25) {2332};
-  \node[state] (3232) at (3.0,-3.70) {3232};
-  \node[state] (2323) at (8.85,-3.80) {2323};
-  \node[state] (2222) at (5.7,-4.65) {2222};
-  \node[state] (3322) at (4.2,-5.45) {3322};
-  \node[state] (2233) at (7.95,-5.40) {2233};
-  \node[state] (3223) at (5.9,-6.45) {3223};
-  \node[state] (3333) at (6.0,-7.65) {3333};
 
-  % 2332 -L-> 3232
+  % Step 1. The eight states, placed as in the handwritten page.
+  \node[state] (2332) at (5.5,-3.25) {2332};   % top, the starting state
+  \node[state] (3232) at (3.0,-3.70) {3232};   % upper left
+  \node[state] (2323) at (8.85,-3.80) {2323};  % upper right
+  \node[state] (2222) at (5.7,-4.65) {2222};   % middle
+  \node[state] (3322) at (4.2,-5.45) {3322};   % left, below 3232
+  \node[state] (2233) at (7.95,-5.40) {2233};  % right
+  \node[state] (3223) at (5.9,-6.45) {3223};   % lower middle
+  \node[state] (3333) at (6.0,-7.65) {3333};   % bottom
+
+  % Step 2. The seven arrows, in the order one meets them walking away from
+  % the starting state 2332.
+
+  % 2332 to 3232, labeled L: from the left side of 2332 to the right side of
+  % 3232.
   \draw[arr] (2332.west) -- (3232.east);
   \node[lab] at (4.25,-2.85) {$L$};
 
-  % 3232 -L-> 3322
+  % 3232 to 3322, labeled L: down and to the right.
   \draw[arr] (3232.south) -- (3322.north west);
   \node[lab] at (2.95,-4.75) {$L$};
 
-  % 3322 -S-> 2222
+  % 3322 to 2222, labeled S: up and to the right.
   \draw[arr] (3322.north east) -- (2222.south west);
   \node[lab] at (5.45,-5.40) {$S$};
 
-  % 2222 -A-> 2233
+  % 2222 to 2233, labeled A: to the right and down.
   \draw[arr] (2222.east) -- (2233.north west);
   \node[lab] at (7.05,-4.50) {$A$};
 
-  % 2233 -L-> 2323
+  % 2233 to 2323, labeled L: up and to the right.
   \draw[arr] (2233.north) -- (2323.south);
   \node[lab] at (8.95,-4.60) {$L$};
 
-  % 3333 -S-> 3223
+  % 3333 to 3223, labeled S: straight up.
   \draw[arr] (3333.north) -- (3223.south);
   \node[lab] at (6.35,-7.05) {$S$};
 
-  % 2233 -A-> 3333 (curve on the right)
+  % 2233 to 3333, labeled A: the one curved arrow. It leaves the bottom of
+  % 2233 heading down toward (8.0,-6.9) and comes into the right side of 3333
+  % from the direction of (7.5,-7.6).
   \draw[arr] (2233.south) .. controls (8.0,-6.9) and (7.5,-7.6) .. (3333.east);
   \node[lab] at (8.05,-7.25) {$A$};
 \end{tikzpicture}
+
+%% Alt text for the second picture.
 \xmalt{A directed tree on the eight states 2222, 2233, 2323, 2332, 3223, 3232, 3322 and 3333, with seven labeled arrows. From 2332 an arrow labeled L goes to 3232. From 3232 an arrow labeled L goes to 3322. From 3322 an arrow labeled S goes to 2222. From 2222 an arrow labeled A goes to 2233. From 2233 an arrow labeled L goes to 2323, and a curved arrow labeled A goes to 3333. From 3333 an arrow labeled S goes to 3223.}
 \end{image}
 
