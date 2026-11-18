@@ -12,7 +12,7 @@ installed on your own computer.
 
     src/trees.tex              the course ("xourse") file: title and list of activities
     src/preamble.tex           macros and TikZ libraries shared by every activity
-    src/tree-2222/main.tex     one tree starting with 2222, drawn in TikZ
+    src/tree-2222/main.tex     one tree starting with 2222 and one starting with 2332, drawn in TikZ
     src/intent.cfg             MathJax setup for intent: \xmunits, \xmabs
     src/custom.css             site-specific styling
     static/                    hand-written files, copied into the site as they are
