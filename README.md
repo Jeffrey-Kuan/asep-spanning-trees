@@ -17,6 +17,7 @@ installed on your own computer.
     src/custom.css             site-specific styling
     static/                    hand-written files, copied into the site as they are
     static/answer-a11y.js      screen reader support for \answer boxes, loaded on every page
+    static/image-alt.js        gives each picture its \xmalt text as the name screen readers use
     latex/xmintent.sty         the intent commands for the LaTeX side of the build
     package.json               the Ximera packages the build uses
     tex4npm.config.js          where sources live (src) and where output goes (dist)

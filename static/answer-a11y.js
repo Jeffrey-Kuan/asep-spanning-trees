@@ -293,3 +293,7 @@ document.addEventListener('click', (event) => {
   const btn = event.target.closest?.('.ximera-check-btn');
   if (btn) onCheck(btn.closest('.ximera-input-group'));
 }, true);
+
+// Alt text for pictures (\xmalt). Kept in its own file, loaded from here so
+// that every page gets it.
+import(new URL('image-alt.js', import.meta.url).href);
