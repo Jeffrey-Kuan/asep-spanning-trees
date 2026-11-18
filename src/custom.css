@@ -95,3 +95,11 @@ mjx-mtd [id^="ximera-placeholder"] {
   border-bottom: 1px solid currentColor;
   vertical-align: baseline;
 }
+
+/* TikZ pictures arrive as inline SVG whose box is cut exactly at the edge of
+   the drawing, which shaves the tops of digits in the top row. Let the
+   drawing show past its box, and leave a little room around it. */
+.image-environment > svg {
+  overflow: visible;
+  margin: 0.4em 0;
+}
