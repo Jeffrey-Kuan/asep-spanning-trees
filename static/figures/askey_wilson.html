@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Askey-Wilson Hierarchy</title>
+<style>
+:root { --bg: #ffffff; --fg: #111111; }
+@media (prefers-color-scheme: dark) { :root { --bg: #1b1b1b; --fg: #eeeeee; } }
+body { background: var(--bg); color: var(--fg); font-family: Georgia, serif;
+       margin: 0 auto; padding: 16px; max-width: 1122px; }
+.figure { overflow-x: auto; }
+svg { color: var(--fg); display: block; }
+.node { height: 100%; display: flex; align-items: center; justify-content: center;
+        text-align: center; line-height: 1.25; box-sizing: border-box; }
+.one-line { white-space: nowrap; }
+.nb { white-space: nowrap; }
+.node:focus { outline: 3px solid #2a6fdb; outline-offset: 2px; }
+</style>
+<script>MathJax = { tex: { inlineMath: [['\\(', '\\)']] } };</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<h2>The Askey-Wilson Hierarchy</h2>
+<div class="figure"><svg width="1082" height="646" viewBox="0 0 1082 646" xmlns="http://www.w3.org/2000/svg"><defs><marker id="tip" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs>
+<g aria-hidden="true">
+<path d="M261.3,68.9 L205.3,158.4" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M291.9,68.9 L347.6,158.4" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M322.5,68.9 L490.3,158.4" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M276.6,68.9 L276.6,297.7" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M758.3,68.9 L585.1,158.4" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M790.3,68.9 L734.3,158.4" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M820.8,68.9 L876.6,158.4" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M805.6,68.9 L805.6,297.7" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M167.9,208.2 L89.5,297.7" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M328.9,208.2 L206.1,297.7" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M509.0,208.2 L408.4,297.7" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M527.7,208.2 L494.0,297.7" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M547.8,208.2 L586.4,297.7" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M676.8,208.2 L526.5,297.7" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M696.9,208.2 L618.8,297.7" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M715.4,208.2 L703.9,297.7" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M734.2,208.2 L790.1,297.7" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M754.4,208.2 L881.5,296.8" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M895.4,208.2 L906.9,296.8" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M915.0,208.2 L996.3,296.8" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M77.0,347.5 L109.4,433.7" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M95.7,347.5 L196.3,437.0" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M181.3,347.5 L214.9,437.0" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M267.3,347.5 L233.6,437.0" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M268.8,347.5 L197.6,575.4" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M371.1,347.5 L337.8,437.0" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M428.5,336.6 L809.4,447.0" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M456.8,347.5 L356.4,437.0" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M475.4,347.5 L441.9,437.0" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M514.2,347.5 L620.5,437.0" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M567.6,347.5 L461.7,437.0" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M625.2,347.5 L726.1,437.0" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M645.2,340.9 L913.2,442.7" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M736.5,336.6 L916.3,436.1" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M777.6,347.5 L677.0,437.0" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M796.3,347.5 L762.9,437.0" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M861.3,328.3 L376.6,449.8" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M993.1,335.7 L884.5,436.1" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M134.2,490.1 L177.0,575.4" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M218.1,486.8 L196.0,575.4" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M420.6,485.9 L375.5,576.3" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M601.8,484.7 L411.2,577.7" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M705.6,478.7 L411.2,584.0" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M832.7,485.9 L743.5,575.4" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<path d="M948.9,485.9 L904.5,575.4" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#tip)"/>
+<rect x="228.5" y="20.0" width="96.2" height="48.9" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<rect x="757.5" y="20.0" width="96.2" height="48.9" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<rect x="142.0" y="158.4" width="95.3" height="49.8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<rect x="315.0" y="158.4" width="96.2" height="49.8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<rect x="488.9" y="158.4" width="96.2" height="49.8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<rect x="671.0" y="158.4" width="95.3" height="49.8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<rect x="844.0" y="158.4" width="96.2" height="49.8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<rect x="20.0" y="297.7" width="95.3" height="49.8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<rect x="123.8" y="297.7" width="96.2" height="49.8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<rect x="228.5" y="297.7" width="96.2" height="49.8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<rect x="332.3" y="297.7" width="96.2" height="49.8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<rect x="437.0" y="297.7" width="95.3" height="49.8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<rect x="549.0" y="297.7" width="96.2" height="49.8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<rect x="652.8" y="297.7" width="97.2" height="38.9" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<rect x="757.5" y="297.7" width="96.2" height="49.8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<rect x="861.3" y="296.8" width="96.2" height="38.9" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<rect x="966.0" y="296.8" width="96.2" height="38.9" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<rect x="71.9" y="433.7" width="96.2" height="56.3" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<rect x="176.6" y="437.0" width="95.3" height="49.8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<rect x="280.4" y="437.0" width="96.2" height="49.8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<rect x="384.2" y="437.0" width="97.2" height="48.9" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<rect x="601.8" y="437.0" width="95.3" height="48.9" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<rect x="705.6" y="437.0" width="96.2" height="48.9" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<rect x="809.4" y="436.1" width="96.2" height="49.8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<rect x="913.2" y="436.1" width="96.2" height="49.8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<rect x="142.0" y="575.4" width="95.3" height="50.7" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<rect x="315.0" y="576.3" width="96.2" height="49.8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<rect x="671.0" y="575.4" width="95.3" height="49.8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<rect x="844.0" y="575.4" width="96.2" height="49.8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+
+</g>
+<foreignObject x="228.5" y="20.0" width="96.2" height="48.9"><div xmlns="http://www.w3.org/1999/xhtml" class="node" id="askey-wilson" tabindex="0" aria-flowto="continuous-dual-q-hahn continuous-q-hahn big-q-jacobi continuous-q-jacobi" style="font-size:14.4px"><span>Askey-Wilson</span></div></foreignObject>
+<foreignObject x="757.5" y="20.0" width="96.2" height="48.9"><div xmlns="http://www.w3.org/1999/xhtml" class="node" id="q-racah" tabindex="0" aria-flowto="big-q-jacobi q-hahn dual-q-hahn q-krawtchouk" style="font-size:14.4px"><span><span class="nb">\(q\)-Racah</span></span></div></foreignObject>
+<foreignObject x="142.0" y="158.4" width="95.3" height="49.8"><div xmlns="http://www.w3.org/1999/xhtml" class="node" id="continuous-dual-q-hahn" tabindex="0" aria-flowto="al-salam-chihara" style="font-size:14.4px"><span>Continuous<br>dual <span class="nb">\(q\)-Hahn</span></span></div></foreignObject>
+<foreignObject x="315.0" y="158.4" width="96.2" height="49.8"><div xmlns="http://www.w3.org/1999/xhtml" class="node" id="continuous-q-hahn" tabindex="0" aria-flowto="q-meixner-pollaczek" style="font-size:14.4px"><span>Continuous<br><span class="nb">\(q\)-Hahn</span></span></div></foreignObject>
+<foreignObject x="488.9" y="158.4" width="96.2" height="49.8"><div xmlns="http://www.w3.org/1999/xhtml" class="node" id="big-q-jacobi" tabindex="0" aria-flowto="big-q-laguerre little-q-jacobi q-meixner" style="font-size:14.4px"><span>Big<br><span class="nb">\(q\)-Jacobi</span></span></div></foreignObject>
+<foreignObject x="671.0" y="158.4" width="95.3" height="49.8"><div xmlns="http://www.w3.org/1999/xhtml" class="node" id="q-hahn" tabindex="0" aria-flowto="little-q-jacobi q-meixner quantum-q-krawtchouk q-krawtchouk affine-q-krawtchouk" style="font-size:14.4px"><span><span class="nb">\(q\)-Hahn</span></span></div></foreignObject>
+<foreignObject x="844.0" y="158.4" width="96.2" height="49.8"><div xmlns="http://www.w3.org/1999/xhtml" class="node" id="dual-q-hahn" tabindex="0" aria-flowto="affine-q-krawtchouk dual-q-krawtchouk" style="font-size:14.4px"><span>Dual <span class="nb">\(q\)-Hahn</span></span></div></foreignObject>
+<foreignObject x="20.0" y="297.7" width="95.3" height="49.8"><div xmlns="http://www.w3.org/1999/xhtml" class="node" id="al-salam-chihara" tabindex="0" aria-flowto="continuous-big-q-hermite continuous-q-laguerre" style="font-size:14.4px"><span>Al-Salam–Chihara</span></div></foreignObject>
+<foreignObject x="123.8" y="297.7" width="96.2" height="49.8"><div xmlns="http://www.w3.org/1999/xhtml" class="node" id="q-meixner-pollaczek" tabindex="0" aria-flowto="continuous-q-laguerre" style="font-size:14.4px"><span><span class="nb">\(q\)-Meixner–Pollaczek</span></span></div></foreignObject>
+<foreignObject x="228.5" y="297.7" width="96.2" height="49.8"><div xmlns="http://www.w3.org/1999/xhtml" class="node" id="continuous-q-jacobi" tabindex="0" aria-flowto="continuous-q-laguerre continuous-q-hermite" style="font-size:14.4px"><span>Continuous<br><span class="nb">\(q\)-Jacobi</span></span></div></foreignObject>
+<foreignObject x="332.3" y="297.7" width="96.2" height="49.8"><div xmlns="http://www.w3.org/1999/xhtml" class="node" id="big-q-laguerre" tabindex="0" aria-flowto="little-q-laguerre al-salam-carlitz-i" style="font-size:14.4px"><span>Big<br><span class="nb">\(q\)-Laguerre</span></span></div></foreignObject>
+<foreignObject x="437.0" y="297.7" width="95.3" height="49.8"><div xmlns="http://www.w3.org/1999/xhtml" class="node" id="little-q-jacobi" tabindex="0" aria-flowto="little-q-laguerre q-laguerre q-bessel" style="font-size:14.4px"><span>Little<br><span class="nb">\(q\)-Jacobi</span></span></div></foreignObject>
+<foreignObject x="549.0" y="297.7" width="96.2" height="49.8"><div xmlns="http://www.w3.org/1999/xhtml" class="node" id="q-meixner" tabindex="0" aria-flowto="q-laguerre q-charlier al-salam-carlitz-ii" style="font-size:14.4px"><span><span class="nb">\(q\)-Meixner</span></span></div></foreignObject>
+<foreignObject x="652.8" y="297.7" width="97.2" height="38.9"><div xmlns="http://www.w3.org/1999/xhtml" class="node" id="quantum-q-krawtchouk" tabindex="0" aria-flowto="al-salam-carlitz-ii" style="font-size:14.4px"><span>Quantum <span class="nb">\(q\)-Krawtchouk</span></span></div></foreignObject>
+<foreignObject x="757.5" y="297.7" width="96.2" height="49.8"><div xmlns="http://www.w3.org/1999/xhtml" class="node" id="q-krawtchouk" tabindex="0" aria-flowto="q-bessel q-charlier" style="font-size:14.4px"><span><span class="nb">\(q\)-Krawtchouk</span></span></div></foreignObject>
+<foreignObject x="861.3" y="296.8" width="96.2" height="38.9"><div xmlns="http://www.w3.org/1999/xhtml" class="node" id="affine-q-krawtchouk" tabindex="0" aria-flowto="little-q-laguerre" style="font-size:14.4px"><span>Affine <span class="nb">\(q\)-Krawtchouk</span></span></div></foreignObject>
+<foreignObject x="966.0" y="296.8" width="96.2" height="38.9"><div xmlns="http://www.w3.org/1999/xhtml" class="node" id="dual-q-krawtchouk" tabindex="0" aria-flowto="al-salam-carlitz-i" style="font-size:14.4px"><span>Dual <span class="nb">\(q\)-Krawtchouk</span></span></div></foreignObject>
+<foreignObject x="71.9" y="433.7" width="96.2" height="56.3"><div xmlns="http://www.w3.org/1999/xhtml" class="node" id="continuous-big-q-hermite" tabindex="0" aria-flowto="continuous-q-hermite" style="font-size:14.4px"><span>Continuous big <span class="nb">\(q\)-Hermite</span></span></div></foreignObject>
+<foreignObject x="176.6" y="437.0" width="95.3" height="49.8"><div xmlns="http://www.w3.org/1999/xhtml" class="node" id="continuous-q-laguerre" tabindex="0" aria-flowto="continuous-q-hermite" style="font-size:14.4px"><span>Continuous<br><span class="nb">\(q\)-Laguerre</span></span></div></foreignObject>
+<foreignObject x="280.4" y="437.0" width="96.2" height="49.8"><div xmlns="http://www.w3.org/1999/xhtml" class="node" id="little-q-laguerre" tabindex="0" style="font-size:14.4px"><span>Little<br><span class="nb">\(q\)-Laguerre</span></span></div></foreignObject>
+<foreignObject x="384.2" y="437.0" width="97.2" height="48.9"><div xmlns="http://www.w3.org/1999/xhtml" class="node" id="q-laguerre" tabindex="0" aria-flowto="stieltjes-wigert" style="font-size:14.4px"><span><span class="nb">\(q\)-Laguerre</span></span></div></foreignObject>
+<foreignObject x="601.8" y="437.0" width="95.3" height="48.9"><div xmlns="http://www.w3.org/1999/xhtml" class="node" id="q-bessel" tabindex="0" aria-flowto="stieltjes-wigert" style="font-size:14.4px"><span><span class="nb">\(q\)-Bessel</span></span></div></foreignObject>
+<foreignObject x="705.6" y="437.0" width="96.2" height="48.9"><div xmlns="http://www.w3.org/1999/xhtml" class="node" id="q-charlier" tabindex="0" aria-flowto="stieltjes-wigert" style="font-size:14.4px"><span><span class="nb">\(q\)-Charlier</span></span></div></foreignObject>
+<foreignObject x="809.4" y="436.1" width="96.2" height="49.8"><div xmlns="http://www.w3.org/1999/xhtml" class="node" id="al-salam-carlitz-i" tabindex="0" aria-flowto="discrete-q-hermite-i" style="font-size:14.4px"><span>Al-Salam–Carlitz I</span></div></foreignObject>
+<foreignObject x="913.2" y="436.1" width="96.2" height="49.8"><div xmlns="http://www.w3.org/1999/xhtml" class="node" id="al-salam-carlitz-ii" tabindex="0" aria-flowto="discrete-q-hermite-ii" style="font-size:14.4px"><span>Al-Salam–Carlitz II</span></div></foreignObject>
+<foreignObject x="142.0" y="575.4" width="95.3" height="50.7"><div xmlns="http://www.w3.org/1999/xhtml" class="node" id="continuous-q-hermite" tabindex="0" style="font-size:14.4px"><span>Continuous<br><span class="nb">\(q\)-Hermite</span></span></div></foreignObject>
+<foreignObject x="315.0" y="576.3" width="96.2" height="49.8"><div xmlns="http://www.w3.org/1999/xhtml" class="node" id="stieltjes-wigert" tabindex="0" style="font-size:14.4px"><span>Stieltjes-Wigert</span></div></foreignObject>
+<foreignObject x="671.0" y="575.4" width="95.3" height="49.8"><div xmlns="http://www.w3.org/1999/xhtml" class="node" id="discrete-q-hermite-i" tabindex="0" style="font-size:14.4px"><span>Discrete<br><span class="nb">\(q\)-Hermite</span> I</span></div></foreignObject>
+<foreignObject x="844.0" y="575.4" width="96.2" height="49.8"><div xmlns="http://www.w3.org/1999/xhtml" class="node" id="discrete-q-hermite-ii" tabindex="0" style="font-size:14.4px"><span>Discrete<br><span class="nb">\(q\)-Hermite</span> II</span></div></foreignObject>
+
+</svg></div>
+</body>
+</html>
